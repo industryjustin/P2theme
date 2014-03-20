@@ -11,9 +11,10 @@
  * @package P2
  */
 ?>
-<?php get_header(); ?>
 
 <?php if ( is_user_logged_in() ) : ?>
+
+<?php get_header(); ?>
 
 <div class="sleeve_main">
 	<?php if ( p2_user_can_post() && !is_archive() ) : ?>
@@ -61,6 +62,8 @@
 
 </div> <!-- sleeve -->
 
+<?php get_footer(); ?>
+
 <?php else : ?>
 
   <div class="profile-box signed-out">
@@ -70,5 +73,3 @@
   </div>
 
 <?php endif; ?>
-
-<?php get_footer(); ?>
