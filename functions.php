@@ -769,3 +769,14 @@ function send_email_notification_once_comment($commentID){
 		wp_mail($email, "[$blog_title] You've been mentioned in a comment by {$comment->comment_author}", $message);
 	}
 }
+
+ // If user not logged in, redirect to landing page
+ 
+ if (
+  !in_array($GLOBALS['pagenow'], array('wp-login.php', 'wp-register.php'))
+  && !is_admin()
+  && !is_user_logged_in()
+) {
+  wp_redirect('http://jfdi.bz?memberful_endpoint=auth', 301);
+  exit;
+}
